@@ -6,7 +6,7 @@ class form extends Component {
 
         this.state = {
             formContent: {
-                quoteType: "",
+                quoteType: "1",
                 numberOfQuotes: ""
             },
         };
@@ -16,7 +16,10 @@ class form extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        console.log(this.state.formContent)
+        if(!this.props.onSubmit){
+            return
+        }
+        this.props.onSubmit(this.state.formContent)
     };
 
     handleFormChange = e => {
@@ -33,13 +36,14 @@ class form extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                     <div>
                         <label>Type de citation</label>
-                        <input
-
-                            type="text"
+                          <select
                             name="quoteType"
                             value={this.state.formContent.quoteType}
                             onChange={this.handleFormChange}
-                        />
+                        >
+                            <option value="1">Campagne</option>
+                            <option value="2">Mer</option>
+                        </select>
                     </div>
 
                     <div>
@@ -53,7 +57,7 @@ class form extends Component {
                     </div>
 
                     <div>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Créer des haïkus" />
                     </div>
                 </form>
             </div>

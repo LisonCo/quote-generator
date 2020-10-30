@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class quotesList extends Component {
+class QuotesList extends Component {
     // constructor(props) {
     //     super(props);
     
@@ -22,4 +22,4 @@ class quotesList extends Component {
     }
 }
 
-export default quotesList
+export default QuotesList
